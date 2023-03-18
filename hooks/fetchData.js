@@ -12,7 +12,7 @@ export default async function fetchData (url, options={}){
 
     if(__OPTIONS.method === "GET") delete __OPTIONS.body;
 
-    const res = await fetch(`http://localhost:8080${url}`, __OPTIONS);
+    const res = await fetch(`https://luvo.herokuapp.com${url}`, __OPTIONS);
     const data = (res.ok && res.status === 200) && await res.json();
 
     return data;
