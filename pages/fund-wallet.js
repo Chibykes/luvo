@@ -46,6 +46,8 @@ export default function FundWallet() {
       },
       callback: function({reference}){
 
+        router.push('/success');
+
       }
     });
   
