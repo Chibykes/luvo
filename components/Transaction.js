@@ -1,7 +1,7 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
 
-export default function Transaction({ type, from, to, createdAt, amount }) {
+export default function Transaction({ type, status, from, to, createdAt, amount }) {
 
     const [user,  setUser] = useState();
 
@@ -28,7 +28,7 @@ export default function Transaction({ type, from, to, createdAt, amount }) {
                     { 
                         (type === "pay")
                         ? <p className='font-bold text-sm text-red-400 uppercase'>-&#8358;{(amount).toLocaleString()}</p>
-                        : <p className='font-bold text-sm text-green-400 uppercase'>+&#8358;{(amount).toLocaleString()}</p>
+                        : <p className={`font-bold text-sm ${status === 'processing' ? 'text-yellow-400' : 'text-green-400'} uppercase`}>+&#8358;{(amount).toLocaleString()}</p>
                     }
                 </div>
             }

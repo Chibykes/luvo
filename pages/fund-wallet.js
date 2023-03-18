@@ -1,7 +1,7 @@
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Script from 'next/script';
 import { GiMoneyStack } from 'react-icons/gi';
@@ -14,23 +14,37 @@ export default function FundWallet() {
 
   const router = useRouter();
   const [amount, setAmount] = useState();
+  const [user, setUser] = useState({});
+  const [reference, setReference] = useState({});
 
-  function payWithPaystack(e) {
+  async function payWithPaystack(e) {
     e.preventDefault();
+
+    let details = {
+      email: user?.email,
+      amount: Number(amount) * 100,
+      ref: 'T'+new Date().getTime(),
+    }
+
+    const options = {
+      method: 'POST',
+      body: {
+        type: "funding",
+        amount,
+        reference: details.ref,
+      }
+    }
+
+    const {status, data} = await fetchData('/api/fund-wallet', options);
+    if(status === 0) return router.push('/login');
   
     let handler = PaystackPop.setup({
       key: 'pk_test_1036b2692892ebe21cf87429183177c154984321', // Replace with your public key
-      email: 'chibykes99@gmail.com',
-      amount: Number(amount) * 100,
+      ...details,
       onClose: function(){
         console.log('Window closed.');
       },
       callback: function({reference}){
-
-        handleAddTransaction({
-          reference,
-          amount
-        });
 
       }
     });
@@ -38,31 +52,13 @@ export default function FundWallet() {
     handler.openIframe();
   }
 
-  const handleAddTransaction = async(transaction) => {
-
-    const trx = {
-      type: 'funding',
-      ...transaction
-    }
-
-    localStorage.setItem('ongoing_transc', JSON.stringify(trx));
-
-    const options = {
-      method: 'POST',
-      body: trx
-    }
-
-    const { status, data } = await fetchData('/api/fund-wallet', options);
-
-    if(status === 0){
-      return router.push('/login');
-    }
-
-    if(status === 2){
-      router.push('/success');
-    }
-
-  }
+  useEffect(() => {
+    (async() => {
+      const { user } = await fetchData('/api/user');
+      if(user) localStorage.setItem('luvo_user', JSON.stringify(user));
+      setUser(user);
+    })();
+  }, [])
 
   return (
     <>
