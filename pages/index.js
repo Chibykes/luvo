@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+import { SiGoogleplay } from 'react-icons/si'
+import { IoBusSharp } from 'react-icons/io5'
+import { TbSend, TbHistory } from 'react-icons/tb'
 
 export default function Home() {
   return (
@@ -14,109 +14,97 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+      <main className="">
+
+        <div className='flex justify-between items-center p-5 backdrop-blur-xl '>
+
+          <p className='font-bold text-3xl font-[Teko]'>luvo</p>
+
+          <div className='flex place-items-center gap-3 bg-black p-3 font-bold !text-white rounded-md active:ring-1 ring-neutral-700'>
+            <SiGoogleplay className="text-sm" />
+            <span className="text-sm">Download App</span>
           </div>
+
         </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
+
+
+        <div className='grid lg:grid-cols-2 gap-8 items-center p-8 bg-emerald-50'>
+
+
+          <div className='lg:p-10 space-y-8'>
+            <p className='text-5xl font-bold'>
+              Your rides are good make their payments better with luvo
+            </p>
+            <p className=''>
+              If you're looking for a great transport payment app, luvo is the perfect choice. With luvo, you can easily and quickly pay for your transport, whether it's a bus, train, or taxi.
+            </p>
+            <div className='inline-flex place-items-center gap-3 bg-black p-3 font-bold !text-white rounded-md active:ring-1 ring-neutral-700'>
+              <SiGoogleplay className="text-sm" />
+              <span className="text-sm">Download App</span>
+          </div>
+          </div>
+
+
+          <div className='relative h-[500px]'>
+
             <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
+              className='absolute bottom-5'
+              src="/blob.png"
+              style={{ objectFit: 'contain', objectPosition: 'center' }}
+              width={1000}
+              height={1000}
+              alt=""
             />
+
+            <Image
+              className=''
+              src="/woman.png"
+              style={{ objectFit: 'contain', objectPosition: 'center' }}
+              fill
+              alt=""
+            />
+
           </div>
+
+
         </div>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+        <div className='grid lg:grid-cols-3 gap-12 p-12'>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+          <div className='bg-white shadow-2xl p-5 rounded-lg space-y-4'>
+            <div className='inline-flex place-items-center p-5 bg-gradient-to-tr from-blue-500 to-purple-300 rounded-md'>
+              <IoBusSharp className="text-4xl text-white" />
+            </div>
+
+            <p className='font-bold text-lg'>10+ Transport services</p>
+            <p className=''>Wide range of transport services to pay with the luvo app</p>
+          </div>
+
+          <div className='bg-white shadow-2xl p-5 rounded-lg space-y-4'>
+            <div className='inline-flex place-items-center p-5 bg-gradient-to-tr from-yellow-500 to-amber-300 rounded-md'>
+              <TbSend className="text-4xl text-white" />
+            </div>
+
+            <p className='font-bold text-lg'>Fast Payments</p>
+            <p className=''>Easy to use app with fast payment system</p>
+          </div>
+
+          <div className='bg-white shadow-2xl p-5 rounded-lg space-y-4'>
+            <div className='inline-flex place-items-center p-5 bg-gradient-to-tr from-green-500 to-emerald-300 rounded-md'>
+              <TbHistory className="text-4xl text-white" />
+            </div>
+
+            <p className='font-bold text-lg'>Up to date History</p>
+            <p className=''>Check your payment history and track your pendings</p>
+          </div>
+
+
+
         </div>
+        
       </main>
     </>
   )
