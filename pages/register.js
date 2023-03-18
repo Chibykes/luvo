@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { HiUserCircle } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import fetchData from '@/hooks/fetchData';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -17,9 +18,10 @@ export default function FundWallet() {
   const [form, setForm] = useState({ });
 
 
-  const handleSubmit = () => {
-    setLoading(true)
-    const { status, data } = fetchData('/api/register', { 
+  const handleSubmit = async() => {
+    setLoading(true);
+
+    const { status, data } = await fetchData('/api/register', { 
       method: 'POST',
       body: form 
     });
@@ -27,7 +29,9 @@ export default function FundWallet() {
     setLoading(false)
     if(status === 2){
       toast.success('Account Created');
-      router.push('/login');
+      setTimeout(() => {
+        router.push('/login');
+      }, 1000)
     }
   }
 
@@ -41,6 +45,7 @@ export default function FundWallet() {
       </Head>
       <main className="max-w-md mx-auto h-screen flex flex-col p-4 gap-4 bg-neutral-50">
 
+        <Toaster />
 
         <div className='p-3'>
           <p className='text-center font-bold'>Register</p>
