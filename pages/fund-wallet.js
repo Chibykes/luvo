@@ -26,14 +26,18 @@ export default function FundWallet() {
       ref: 'T'+new Date().getTime(),
     }
 
+    let body = {
+      type: "funding",
+      amount: Number(amount),
+      reference: details.ref,
+    }
+
     const options = {
       method: 'POST',
-      body: {
-        type: "funding",
-        amount: Number(amount),
-        reference: details.ref,
-      }
+      body
     }
+
+    localStorage.setItem('ongoing_transc', JSON.stringify({...details, ...body}));
 
     const {status, data} = await fetchData('/api/fund-wallet', options);
     if(status === 0) return router.push('/login');
