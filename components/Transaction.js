@@ -18,6 +18,7 @@ export default function Transaction({ type, status, from, to, createdAt, amount 
                     ? "Refund" : user?.role === "customer" 
                     ? to.company : from.fullname
                 }</p>
+                
                 {type === "pay" && <p className='text-xs text-neutral-800'>
                     {user?.role === "customer" ? to.tag : from.tag}
                 </p>}
