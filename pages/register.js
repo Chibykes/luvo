@@ -12,66 +12,24 @@ import fetchData from '@/hooks/fetchData';
 
 export default function FundWallet() {
 
-  let controller;
-
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ });
 
-  const [transTag, setTransTag] = useState('');
-  const [tagError, setTagError] = useState(false);
-  const [tagSuccess, setTagSuccess] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [emailSuccess, setEmailSuccess] = useState(false);
-
-
-  // const searchTag = async( tag ) => {
-    
-  //   controller?.abort();
-    
-  //   setForm({...form, tag: tag.search(/^@/) === 0 ? tag : '@'+tag });
-  //   if(tag === "@" || !tag) return; 
-    
-  //   controller = new AbortController();
-  //   let signal = controller.signal;
-
-  //   const options = {
-  //     method: 'POST',
-  //     headers: { 'content-type': 'application/json' },
-  //     mode: 'cors',
-  //     body: JSON.stringify({ tag }),
-  //     signal
-  //   }
-
-  //   const res = await fetch('http://localhost:8080/api/validate-tag', options);
-  //   const { status, data } = (res.ok && res.status === 200) && await res.json();
-
-  //   if(status === 2){
-  //     if(data){
-  //       setTagError(true);
-  //       setTagSuccess(false);
-  //       return;
-  //     }
-
-  //     setTagError(false);
-  //     setTagSuccess(true);
-  //     return;
-  //   }
-
-    
-  // }
 
   const handleSubmit = () => {
+    setLoading(true)
     const { status, data } = fetchData('/api/register', { 
       method: 'POST',
       body: form 
     });
-
-    console.log(status, data);
+    
+    setLoading(false)
+    if(status === 2){
+      toast.success('Account Created');
+      router.push('/login');
+    }
   }
-
-  // useEffect(() => {
-  //   searchTag(transTag);
-  // }, [transTag]);
 
   return (
     <>
@@ -135,6 +93,7 @@ export default function FundWallet() {
           <Button
             text="Sign Up"
             onClick={handleSubmit}
+            loading={loading}
           />
 
         </div>
