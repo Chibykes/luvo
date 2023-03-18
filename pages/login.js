@@ -55,7 +55,7 @@ export default function Login() {
             </div>
           </div> */}
 
-          <div className='w-5/6 mx-auto bg-white p-10 space-y-4 rounded-lg shadow-xl'>
+          <div className='max-w-md w-5/6 mx-auto bg-white p-10 space-y-4 rounded-lg shadow-xl'>
             <Input
               name="email"
               type="email"
