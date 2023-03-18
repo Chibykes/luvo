@@ -30,7 +30,7 @@ export default function FundWallet() {
       method: 'POST',
       body: {
         type: "funding",
-        amount,
+        amount: Number(amount),
         reference: details.ref,
       }
     }
