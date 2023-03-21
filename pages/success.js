@@ -23,13 +23,13 @@ export default function Home() {
       </Head>
 
 
-      <main className="w-full h-screen max-w-md p-5 mx-auto">
+      <main className="flex justify-center items-center w-full h-screen max-w-md p-5 mx-auto">
 
 
         <div className='p-4 py-20 space-y-3'>
 
             <Script strategy="afterInteractive" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
-            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_pqnfmone.json"  background="transparent"  speed="1"  style={{ width: '50px', height: '50px', margin: 'auto' }} loop autoplay></lottie-player>
+            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_pqnfmone.json"  background="transparent"  speed="1"  style={{ width: '100px', height: '100px', margin: 'auto' }} loop autoplay></lottie-player>
             
             <p className='text-center text-4xl font-bold'>&#8358; {(amount)?.toLocaleString()}</p>
             <p className='text-center text-xs font-bold'>Transaction Success</p>

@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { GiMoneyStack } from 'react-icons/gi';
 import { useRouter } from 'next/router';
 import fetchData from '@/hooks/fetchData';
+import Navbar from '@/components/Navbar';
 
 
 
@@ -77,9 +78,9 @@ export default function FundWallet() {
       <main className="max-w-md mx-auto h-screen flex flex-col p-4 gap-4 bg-neutral-50">
 
 
-        <div className='p-3'>
-          <p className='text-center font-bold'>Fund Wallet</p>
-        </div>
+        <Navbar 
+          text="Fund Wallet"
+        />
 
         
         <div className='space-y-3 bg-white'>

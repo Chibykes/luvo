@@ -1,9 +1,10 @@
+import Navbar from '@/components/Navbar';
 import Transaction from '@/components/Transaction'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { useEffect, useLayoutEffect, useState } from 'react'
-import { BiQrScan } from 'react-icons/bi';
+import { MdExitToApp } from 'react-icons/md';
 import fetchData from '../hooks/fetchData';
 
 
@@ -38,9 +39,10 @@ export default function Dashboard() {
       <main className="max-w-md mx-auto h-screen flex flex-col p-4 gap-4 bg-neutral-50">
 
 
-        <div className='p-3'>
-          <p className='text-center font-bold'>Hi, Chibykes</p>
-        </div>
+        <Navbar 
+          text="Hi, Chibykes"
+          noBack
+        />
 
         
         <div className='space-y-5'>
@@ -58,7 +60,7 @@ export default function Dashboard() {
           </div>
 
 
-          <div className='grid grid-cols-3 bg-white p-4 rounded-lg shadow-sm'>
+          <div className='grid grid-cols-3 bg-white p-4 rounded-lg border border-neutral-200'>
 
             <Link href="/fund-wallet">
               <div className='flex flex-col justify-center items-center p-2 space-y-2 active:bg-neutral-200 rounded-md'>

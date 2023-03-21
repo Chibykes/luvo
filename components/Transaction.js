@@ -6,7 +6,7 @@ export default function Transaction({ type, status, from, to, createdAt, amount 
     const [user,  setUser] = useState();
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('luvo_user')) || {})
+        setUser(JSON.parse(localStorage.getItem('luvo_user') || null))
     }, [])
 
     return (

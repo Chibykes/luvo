@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import Navbar from '@/components/Navbar';
 import fetchData from '@/hooks/fetchData';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -104,9 +105,9 @@ export default function Dashboard() {
       <main className="max-w-md mx-auto h-screen flex flex-col p-4 gap-4 bg-neutral-50">
 
 
-        <div className='p-3'>
-          <p className='text-center font-bold'>Pay</p>
-        </div>
+        <Navbar 
+          text="Pay"
+        />
 
         
         <div className='space-y-3 bg-white '>

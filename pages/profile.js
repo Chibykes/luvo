@@ -8,6 +8,7 @@ import { HiUserCircle } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import fetchData from '@/hooks/fetchData';
 import toast, { Toaster } from 'react-hot-toast';
+import Navbar from '@/components/Navbar';
 
 
 
@@ -63,9 +64,9 @@ export default function FundWallet() {
       <main className="max-w-md mx-auto h-screen flex flex-col p-4 gap-4 bg-neutral-50">
         <Toaster />
 
-        <div className='p-3'>
-          <p className='text-center font-bold'>Profile</p>
-        </div>
+        <Navbar 
+          text="Profile"
+        />
 
         <div className='bg-white rounded-lg p-5 flex flex-col gap-2 justify-center items-center'>
           <HiUserCircle className="text-[6rem] text-purple-600" />
