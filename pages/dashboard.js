@@ -2,7 +2,7 @@ import Transaction from '@/components/Transaction'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { BiQrScan } from 'react-icons/bi';
 import fetchData from '../hooks/fetchData';
 
@@ -12,12 +12,18 @@ export default function Dashboard() {
   const router = useRouter();
   const [data, setData] = useState({  });
 
+  useLayoutEffect(() => {
+    setData(JSON.parse(localStorage.getItem('luvo_dashboard_data') || "{}"));
+  }, []);
+
   useEffect(() => {
     (async() => {
       const data = await fetchData('/api/transactions');
       if(data.status === 0){
         return router.push('/login');
       }
+
+      localStorage.setItem('luvo_dashboard_data', JSON.stringify(data));
       setData(data);
     })();
   }, [])
@@ -93,7 +99,7 @@ export default function Dashboard() {
 
           </div>
 
-          <div className='py-2 space-y-2'>
+          <div className='py-2 space-y-2 pb-12'>
 
             <p className='font-bold'>History</p>
 

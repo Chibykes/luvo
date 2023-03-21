@@ -10,7 +10,7 @@ export default function Transaction({ type, status, from, to, createdAt, amount 
     }, [])
 
     return (
-        <div className='flex justify-between items-center p-4 bg-white border border-neutral-100 rounded-md shadow-md'>
+        <div className='flex justify-between items-center p-4 bg-white border border-neutral-200 rounded-md'>
             <div className='space-y-2'>
                 <p className='font-bold text-xs capitalize'>{
                     type === "funding" 
