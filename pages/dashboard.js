@@ -40,7 +40,7 @@ export default function Dashboard() {
 
 
         <Navbar 
-          text="Hi, Chibykes"
+          text={`Hi, ${data?.user?.tag.replace('@','')}`}
           noBack
         />
 

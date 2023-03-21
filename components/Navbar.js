@@ -22,7 +22,7 @@ export default function Navbar({ noBack, text }) {
           onClick={() => router.back()} 
         />
 
-        <p className='text-center font-bold'>{text}</p>
+        <p className='text-center font-bold capitalize'>{text}</p>
 
         <MdExitToApp
           className="text-neutral-800 text-xl"
