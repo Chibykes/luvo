@@ -70,7 +70,7 @@ export default function Input({
 
             <div className={`${error2 && 'border-red-600'} ${success2 && '!border-green-600'} ${ props.disabled && 'bg-neutral-200' } bg-white border-2 border-neutral-200 flex gap-2 p-1 rounded-md`}>
               <input 
-                className='block w-full p-3 text-xs'
+                className='block w-full p-3 text-sm !outline-none'
                 placeholder={placeholder}
                 name={name}
                 type={type || "text"}
