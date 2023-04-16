@@ -116,13 +116,6 @@ export default function Dashboard() {
           </div>
 
         </div>
-
-        {/* <div className='bg-gradient-to-tr from-purple-600 to-emerald-400 fixed grid place-content-center rounded-full w-12 h-12 shadow-2xl bottom-5 right-5'>
-          <BiQrScan
-            className="text-2xl font-bold text-white"
-          />
-        </div> */}
-
         
       </main>
     </>
